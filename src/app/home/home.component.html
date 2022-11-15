@@ -1,0 +1,13 @@
+<select (change)="select($event)">
+  <option
+    *ngFor="let value of selectItems; let i = index;"
+    highlight
+    [value]="value"
+    [selected]="i === selectedIndex"
+  >{{value}}</option>
+</select>
+
+<p *ngIf="loading; else contentTemplate"> Loading... </p>
+<ng-template #contentTemplate>
+  <p class="content">{{content}}</p>
+</ng-template>
